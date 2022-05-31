@@ -1,5 +1,3 @@
-using GAMS;
-
 namespace Tester.DirectorSteps;
 
 public abstract class SolverStep{

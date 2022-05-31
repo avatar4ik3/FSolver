@@ -6,11 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GAMS.net4">
-      <HintPath>..\..\..\..\..\..\GAMS\35\GAMS.net4.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Gurobi95.NET">
       <HintPath>..\..\..\..\..\..\gurobi951\win64\bin\Gurobi95.NET.dll</HintPath>
     </Reference>

@@ -1,6 +1,5 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
-using GAMS;
 using System;
 using System.Collections;
 using Tester;

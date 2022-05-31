@@ -1,4 +1,3 @@
-using GAMS;
 using Tester.DirectorSteps;
 using System.Linq;
 

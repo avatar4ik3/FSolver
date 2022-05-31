@@ -1,4 +1,3 @@
-using GAMS;
 using Tester.DirectorSteps;
 
 namespace Tester;
@@ -6,7 +5,7 @@ namespace Tester;
 public class StepsProvider{
     private List<SolverStep> _steps = new List<SolverStep>(); 
 
-    public StepsProvider(GAMSWorkspace ws,Config config, RandomModelDataProvider dataProvider)
+    public StepsProvider(Config config, RandomModelDataProvider dataProvider)
     {
         //var models = dataProvider.Provide(config.Itterations);
     }
