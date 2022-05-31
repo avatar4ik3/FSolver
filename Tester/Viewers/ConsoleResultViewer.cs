@@ -16,7 +16,7 @@ public class ConsoleResultViewer : IResultViewer
         foreach(var result in results.values){
             result.Elements.Sort((o1,o2) => o1.Number.CompareTo(o2.Number));
             foreach(var elem in result.Elements){
-                Console.WriteLine($"{result.ResultName} {elem.Number} C: {elem.Model.C} : ro : {elem.Model.Ro}");
+                Console.WriteLine($"{result.ResultName} {elem.Number} ");
             }
         }
         // Console.WriteLine("details:");

@@ -11,6 +11,7 @@ public class RandomModelDataProvider{
     public List<Model> Provide(int count){
         var result = new List<Model>();
         foreach(var i in Enumerable.Range(0,count)){
+            //todo dfinads
             var model = Director.BuildRandomModel();
             Console.WriteLine($"{i} : {model}"); 
             result.Add(model);

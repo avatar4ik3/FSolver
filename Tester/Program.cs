@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using Tester;
 using Microsoft.Extensions.Configuration;
+using GAMS;
 
 namespace Tester;
 
@@ -11,31 +12,31 @@ public class Programm
 {
     public static void Main(string[] args)
     {
-        // using  FileStream filestream = new FileStream("out.txt", FileMode.Create);
-        // using var streamwriter = new StreamWriter(filestream);
-        // streamwriter.AutoFlush = true;
-        // Console.SetOut(streamwriter);
-        // Console.SetError(streamwriter);
+        using  FileStream filestream = new FileStream("out.txt", FileMode.Create);
+        using var streamwriter = new StreamWriter(filestream);
+        streamwriter.AutoFlush = true;
+        Console.SetOut(streamwriter);
+        Console.SetError(streamwriter);
 
-        // IServiceProvider provider = BuildServiceProvider();
-        // var dir = provider.GetService<FullAnswerConsoleResultViewer>();
-        // dir!.View();
+        IServiceProvider provider = BuildServiceProvider();
+        var dir = provider.GetService<FullAnswerConsoleResultViewer>();
+        dir!.View();
 
         // var config = new Config(){
         //     RandomSeed = 10,
         //     S = 3,
-        //     VertexCount = 10,
+        //     VertexCount = 5,
         //     P = 1D/2D,
         //     Itterations = 0
         // };
-        // var builder = new ModelBuilderDirector(config,new Random(123));
+        // var builder = new ModelBuilderDirector(config,new Random(config.RandomSeed));
         // var model1 = builder.BuildRandomModel();
         // var model2 = builder.BuildRandomModel();
 
         // Console.WriteLine(model1);
         // Console.WriteLine(model2);
-        var solver = new GurobiSolver(null!,null!);
-        solver.Solve();
+        // var solver = new GurobiSolver(null!,null!);
+        // solver.Solve();
     }
 
     private static IServiceProvider BuildServiceProvider()
@@ -62,6 +63,8 @@ public class Programm
         collection.AddSingleton<FullAnswerConsoleResultViewer>();
         collection.AddSingleton<RandomModelDataProvider>();
         collection.AddSingleton<StepsProvider>();
+        collection.AddSingleton<GAMSWorkspace>(new GAMSWorkspace(config.GamsWorkspaceFolder, config.GamsFolder));
+
         return collection.BuildServiceProvider();
     }
 }
@@ -69,15 +72,20 @@ public class Programm
 
 public class Config
 {
+    public string? GamsWorkspaceFolder { get; set; }
+
+    public string? GamsFolder { get; set; }
     public int RandomSeed { get; set; }
 
-    public int S {get;set;}
+    public int S { get; set; }
 
-    public int VertexCount {get;set;}
+    public int VertexCount { get; set; }
 
-    public double P {get;set;}
+    public double P { get; set; }
 
-    public int Itterations {get;set;}
+    public int Itterations { get; set; }
+
+    public string? FileName {get;set;}
 }
 
 

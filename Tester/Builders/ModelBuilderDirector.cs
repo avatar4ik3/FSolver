@@ -52,6 +52,34 @@ public class ModelBuilderDirector
 
     public Model BuildConcreteModel()
     {
-        throw new NotImplementedException();
+         var model = new Model();
+
+
+        var s = 3;
+
+        model.S = s;
+        var n = 3;
+
+        model.Graph = new bool[n][];
+        for (int i = 0; i < n; ++i)
+        {
+            model.Graph[i] = new bool[n];
+        }
+
+       
+       model.Graph[0][0] = false;
+       model.Graph[0][1] = true;
+       model.Graph[0][2] = true;
+       model.Graph[1][0] = true;
+       model.Graph[1][1] = false;
+       model.Graph[1][2] = true;
+       model.Graph[2][0] = true;
+       model.Graph[2][1] = true;
+       model.Graph[2][2] = false;
+
+
+
+
+        return model;
     }
 }

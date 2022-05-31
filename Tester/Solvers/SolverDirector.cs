@@ -6,9 +6,9 @@ namespace Tester;
 public class SolverDirector
 {
     
-    public SolverDirector(StepsProvider provider,string[] solvers)
+    public SolverDirector(StepsProvider provider)
     {
-        var steps = provider.GetSteps(solvers);
+        var steps = provider.GetSteps();
         this.Itterations = steps.AsQueryable().GroupBy(x => x.Number).ToList(); 
     }
 
